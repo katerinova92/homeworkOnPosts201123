@@ -1,3 +1,3 @@
 interface Attachment {
-    val type: Attachment
+    val type: String
 }

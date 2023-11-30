@@ -5,7 +5,7 @@ data class Post(
     val fromID: Int,
     val date: LocalDateTime,
     val text: String,
-    val original: Post?,
+    val original: Post? = null,
     val attachments: Array<Attachment> = emptyArray(),
     val likes: Likes = Likes(0),
     val comments: Comments = Comments(0),
