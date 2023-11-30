@@ -12,7 +12,7 @@ class AutotestsForPosts {
 
     @Test
     fun postAddAutotest() {
-        val testPost = Post(0, 222999, LocalDateTime.now(), "Test text")
+        val testPost = Post(0, 222999, LocalDateTime.now(), "Test text", null)
         val wallSize = WallService.wallSizeCounting()
 
         WallService.add(testPost)
@@ -24,18 +24,18 @@ class AutotestsForPosts {
 
     @Test
     fun updatePostAutotestForExistentID() {
-        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text"))
-        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text 2"))
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text", null))
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text 2", null))
 
-        assertEquals(WallService.update(Post(2, 222999, LocalDateTime.now(), "New text")), true)
+        assertEquals(WallService.update(Post(2, 222999, LocalDateTime.now(), "New text", null)), true)
     }
 
     @Test
     fun updatePostAutotestForNonexistentID() {
-        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text"))
-        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text 2"))
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text", null))
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text 2", null))
 
-        assertEquals(WallService.update(Post(3, 222999, LocalDateTime.now(), "New text")), false)
+        assertEquals(WallService.update(Post(3, 222999, LocalDateTime.now(), "New text", null)), false)
     }
 }
 
