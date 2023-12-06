@@ -13,6 +13,4 @@ data class Post(
     val isPinned: Boolean = false,
     val friendsOnly: Boolean = false,
     val markedAsAds: Boolean = false
-) {
-
-}
+)

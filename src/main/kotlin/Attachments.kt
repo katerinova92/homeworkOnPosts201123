@@ -1,8 +1,7 @@
 class AudioAttachment(
     override val type: String = "audio",
     val audio: Audio
-) : Attachment {
-}
+) : Attachment
 
 class Audio(
     val name: String,
@@ -10,15 +9,12 @@ class Audio(
     val releaseYear: Int,
     val duration: Int,
     val trackID: Int
-) {
-}
-
+)
 
 class VideoAttachment(
     override val type: String = "video",
     val video: Video
-) : Attachment {
-}
+) : Attachment
 
 class Video(
     val name: String,
@@ -26,15 +22,12 @@ class Video(
     val ownerID: Int,
     val duration: Int,
     val videoID: Int
-) {
-}
-
+)
 
 class PhotoAttachment(
     override val type: String = "photo",
     val image: Photo
-) : Attachment {
-}
+) : Attachment
 
 class Photo(
     val imageURL: String,
@@ -42,5 +35,4 @@ class Photo(
     val height: Int,
     val width: Int,
     val videoID: Int
-) {
-}
+)

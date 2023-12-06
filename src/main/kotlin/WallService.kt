@@ -1,6 +1,7 @@
 object WallService {
     private var posts = emptyArray<Post>()
     private var lastPostID = 0
+    private var comments = emptyArray<Comment>()
 
     fun add(post: Post): Post {
         posts += post.copy(
@@ -24,6 +25,16 @@ object WallService {
             }
         }
         return false
+    }
+
+    fun createComment(postId: Int, comment: Comment): Comment {
+        for (post in posts) {
+            if (post.postID == postId) {
+                comments += comment
+                return comment
+            }
+        }
+        throw PostNotFoundException("Post with ID $postId not found!")
     }
 
     fun wallSizeCounting() = posts.size

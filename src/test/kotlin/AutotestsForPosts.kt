@@ -37,5 +37,19 @@ class AutotestsForPosts {
 
         assertEquals(WallService.update(Post(3, 222999, LocalDateTime.now(), "New text")), false)
     }
+
+    @Test
+    fun createCommentForExistentPost() {
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text"))
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text 2"))
+        WallService.createComment(1, Comment(1, 555342, LocalDateTime.now(), 1, "New comment!"))
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrow() {
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text"))
+        WallService.add(Post(0, 222999, LocalDateTime.now(), "Test text 2"))
+        WallService.createComment(3, Comment(1, 555342, LocalDateTime.now(), 3, "New comment!"))
+    }
 }
 
